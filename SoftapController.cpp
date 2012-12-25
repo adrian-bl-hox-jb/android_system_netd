@@ -223,6 +223,7 @@ void SoftapController::generatePsk(char *ssid, char *passphrase, char *psk_str) 
  */
 int SoftapController::fwReloadSoftap(int argc, char *argv[])
 {
+#ifdef NO_HOX_WIFI_BLOB_HACK
     int ret, i = 0;
     char *iface;
     char *fwpath;
@@ -254,6 +255,9 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
     else {
         ALOGD("Softap fwReload - Ok");
     }
+#else
+    ret = 0;
+#endif
     return ret;
 }
 
