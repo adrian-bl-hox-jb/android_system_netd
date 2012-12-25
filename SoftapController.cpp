@@ -255,10 +255,10 @@ int SoftapController::fwReloadSoftap(int argc, char *argv[])
     else {
         ALOGD("Softap fwReload - Ok");
     }
-#else
-    ret = 0;
-#endif
     return ret;
+#else
+    return 0;
+#endif
 }
 
 int SoftapController::clientsSoftap(char **retbuf)
